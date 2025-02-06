@@ -11,12 +11,17 @@
       background-color: #fdf6e3;
       text-align: center;
       padding: 50px;
+      overflow: hidden;
     }
+
     h1 {
       font-size: 4rem;
       color: #333;
       margin-bottom: 40px;
+      position: relative;
+      z-index: 1;
     }
+
     img {
       width: 300px;
       height: auto;
@@ -24,6 +29,7 @@
       box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
       margin-bottom: 40px;
     }
+
     button {
       background-color: #4CAF50;
       color: white;
@@ -36,9 +42,25 @@
       box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
       transition: transform 0.2s;
     }
+
     button:hover {
       background-color: #45a049;
       transform: scale(1.1);
+    }
+
+    .emoji {
+      font-size: 2rem;
+      position: absolute;
+      animation: bounce 4s infinite ease-in-out;
+    }
+
+    @keyframes bounce {
+      0%, 100% {
+        transform: translateY(0) rotate(0deg);
+      }
+      50% {
+        transform: translateY(-30px) rotate(360deg);
+      }
     }
   </style>
 </head>
@@ -54,6 +76,27 @@
   </div>
 
   <script>
+    // Bouncing Emoji Generator
+    const emojis = ['🎉', '✨', '🔥', '🎈', '💥'];
+    const title = document.querySelector('h1');
+
+    function createBouncingEmoji() {
+      const emoji = document.createElement('div');
+      emoji.className = 'emoji';
+      emoji.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+
+      // Randomize position
+      emoji.style.left = `${Math.random() * 100}%`;
+      emoji.style.top = `${Math.random() * 40}px`;
+      emoji.style.animationDelay = `${Math.random() * 2}s`;
+      document.body.appendChild(emoji);
+
+      setTimeout(() => emoji.remove(), 5000); // Remove after animation ends
+    }
+
+    // Continuously spawn emojis
+    setInterval(createBouncingEmoji, 800);
+
     function launchConfetti() {
       confetti({
         particleCount: 150,
@@ -65,3 +108,4 @@
   </script>
 </body>
 </html>
+
