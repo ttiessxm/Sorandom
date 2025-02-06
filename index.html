@@ -1,20 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Random No Button</title>
-    <link rel="stylesheet" href="style.css"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Are You Ready Mahmoud?</title>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #fdf6e3;
+      text-align: center;
+      padding: 50px;
+    }
+    h1 {
+      font-size: 4rem;
+      color: #333;
+      margin-bottom: 40px;
+    }
+    img {
+      width: 300px;
+      height: auto;
+      border-radius: 16px;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+      margin-bottom: 40px;
+    }
+    button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 15px 30px;
+      font-size: 1.5rem;
+      margin: 20px;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+      transition: transform 0.2s;
+    }
+    button:hover {
+      background-color: #45a049;
+      transform: scale(1.1);
+    }
+  </style>
 </head>
 <body>
-    <div class="wrapper">
-        <h2 class="question">Wanna Get Food?</h2>
-        <img class="gif" alt="gif" src="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExbjJvdWZzYXc1NGJ6aGp1cDE3b2dyNnVzOGN1andkMjVrMmRzeGwwZSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3OhXBaoR1tVPW/giphy.gif" />
-        <div class="btn-group">
-            <button class="yes-btn">No</button>
-            <button class="no-btn">Yes</button>
-        </div>
-    </div>
-    <script src="script.js"></script>
+  <h1>ARE YOU READY MAHMOUD?</h1>
+
+  <!-- Image Display -->
+  <img src="pintrest.png" alt="Pinterest Reminder Image">
+
+  <div>
+    <button onclick="launchConfetti()">YES</button>
+    <button onclick="launchConfetti()">YES</button>
+  </div>
+
+  <script>
+    function launchConfetti() {
+      confetti({
+        particleCount: 150,
+        spread: 70,
+        origin: { y: 0.6 },
+        colors: ['#bb0000', '#ffffff', '#ffa500', '#008000']
+      });
+    }
+  </script>
 </body>
 </html>
